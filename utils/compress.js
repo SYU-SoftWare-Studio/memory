@@ -40,9 +40,11 @@ function compress(file) {
         } else if (fileSize > 1 && fileSize < 2) {
           //如果图片大于1M并且小于2M 那么压缩0.5
           base64 = canvas.toDataURL(file['type'], 0.5);
-        } else {
+        } else if (fileSize > 2 && fileSize < 6) {
           //如果图片超过2m 那么压缩0.2
           base64 = canvas.toDataURL(file['type'], 0.2);
+        } else {
+          base64 = canvas.toDataURL(file['type'], 0.1);
         }
         // 回调函数返回file的值（将base64编码转成file）
         files = dataURLtoFile(base64); //如果后台接收类型为base64的话这一步可以省略

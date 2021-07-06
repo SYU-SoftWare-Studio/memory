@@ -16,4 +16,33 @@ export default class API {
       data,
     });
   };
+
+  static fetchIndexPic = () => {
+    return service.request({
+      method: 'GET',
+      url: '/fetchIndexPic',
+    });
+  };
+
+  static fetchUploadPic = () => {
+    return service.request({
+      method: 'GET',
+      url: '/fetchUploadPic',
+    });
+  };
+
+  static uploadArticle = (data) => {
+    return service.request({
+      method: 'POST',
+      url: '/uploadArticle',
+      data,
+    });
+  };
+
+  static fetchPic = () => {
+    return service.request({
+      method: 'GET',
+      url: '/fetchPic',
+    });
+  };
 }

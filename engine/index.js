@@ -26,4 +26,43 @@ export default class SYU {
     const link = await API.uploadPic(DOMAIN, formData);
     return `http://${SUB_DOMAIN}/${link.data.key}`;
   };
+
+  static fetchIndexPic = async () => {
+    const { data } = await API.fetchIndexPic();
+    return data.data;
+  };
+
+  static fetchUploadPic = async () => {
+    const { data } = await API.fetchUploadPic();
+    return data.url;
+  };
+
+  static uploadArticle = async (params) => {
+    const { data } = await API.uploadArticle(params);
+    return data;
+  };
+
+  static fetchPic = async () => {
+    const { data } = await API.fetchPic();
+    return data.data;
+  };
+
+  static randomColor = () => {
+    const color = [
+      '#79e5e8',
+      '#7de879',
+      '#ffaaaa',
+      '#66b1ff',
+      '#b672d6',
+      '#f13f7c',
+      '#0accc8',
+      '#FF6666',
+      '#66CCCC',
+      '#CC99CC',
+      '#666699',
+      '#336699',
+      '#99CC33',
+    ];
+    return color[Math.ceil(Math.random() * color.length)];
+  };
 }
